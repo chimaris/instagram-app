@@ -43,9 +43,9 @@ nav {
 	background-position: left 10px center;
 	background-repeat: no-repeat;
 	border: 0.07em solid #dbdbdb;
-	padding: 1em 1.5em;
+	padding: 0.7em 1.5em;
 	padding-left: 2.7em;
-	margin: 0.5em 0.5em 0;
+	margin: 0.8em 0.5em 0;
 	/* width: 15.5em; */
 	width: 70%;
 	height: 2em;
@@ -71,14 +71,16 @@ nav {
 }
 
 .bio {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
+	display: flex;
+	justify-content: space-around;
+	/* grid-template-columns: 1fr 2fr; */
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 3em 0 2em 0em;
 	border-bottom: 0.2px solid #dbdbdb;
 	margin-top: 5em;
 	margin-bottom: 2em;
-	/* width: 80%; */
+	width: 80%;
+	margin: 5em 5em 2em;
 }
 
 #profilePhotoInput {
@@ -91,6 +93,7 @@ nav {
 	height: 10em;
 	border-radius: 50%;
 	margin-top: 0.5em;
+	margin-right: 5em;
 }
 
 .profile-photo img {
@@ -283,6 +286,20 @@ nav {
 	margin-top: 3px;
 }
 
+@media screen and (min-width: 1280px) {
+	nav {
+		grid-template-columns: 1fr 1fr 0.8fr 0.5fr;
+	}
+
+	.profile-info {
+		margin-left: 50px;
+	}
+
+	.bio {
+		width: 90%;
+	}
+}
+
 @media screen and (max-width: 600px) {
 	.profile-photo {
 		width: 5em;
@@ -310,7 +327,7 @@ nav {
 		padding: 3em;
 		margin: 0 auto;
 		text-align: center;
-		/* width: 90%; */
+		width: 90%;
 	}
 
 	.bio div {
@@ -356,15 +373,5 @@ nav {
 	.modalButtonDiv .close-button {
 		width: 4em;
 		height: 2em;
-	}
-}
-
-@media screen and (max-width: 820px) and (min-width: 1280px) {
-	nav {
-		grid-template-columns: 1fr 1fr 0.8fr 0.5fr;
-	}
-
-	.profile-info {
-		margin-left: 50px;
 	}
 }
