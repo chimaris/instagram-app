@@ -5,26 +5,30 @@ import { useLiveQuery } from "dexie-react-hooks";
 import profileIcon from "../assets/profileIcon.svg";
 
 const Bio = () => {
-	// const [userDetails, setUserDetails] = useState({
-	//   name: 'Wendu Stellamaris',
-	//   about: 'Highly motivated Web Developer with a big passion for internet and all related..'
-	// });
+	const [userDetails, setUserDetails] = useState({
+		name: "Wendu Stellamaris",
+		about: "Highly motivated Web Developer with a big passion for internet and all related..",
+	});
 	const [editFormIsOpen, setEditFormIsOpen] = useState(false);
 	const [profilePhoto, setProfilePhoto] = useState(profileIcon);
 
 	useEffect(() => {
 		const setDataFromDb = async () => {
-			// const userDatailsFromDb = await db.bio.get('info');
+			const userDatailsFromDb = await db.bio.get("info");
 			const profilePhotoFromDb = await db.bio.get("profilePhoto");
-			// userDatailsFromDb && setUserDetails(userDatailsFromDb)
+			userDatailsFromDb && setUserDetails(userDatailsFromDb);
 			profilePhotoFromDb && setProfilePhoto(profilePhotoFromDb);
 		};
 
 		setDataFromDb();
 	});
 
-	const userDetails = useLiveQuery(async () => await db.bio.get("info"));
-	if (!userDetails) return null;
+	// const userDetails = useLiveQuery(async () => await db.bio.get("info"));
+	// if (!userDetails) return null;
+	// if (userDetails === {}) {
+	// 	userDetails.name = "Wendu StellaMaris";
+	// 	userDetails.about = "Highly motivated Web Developer with a big passion for internet and all related..";
+	// }
 
 	const updateUserDetails = async (e) => {
 		e.preventDefault();
