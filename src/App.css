@@ -43,7 +43,7 @@ nav {
 	background-position: left 10px center;
 	background-repeat: no-repeat;
 	border: 0.07em solid #dbdbdb;
-	padding: 0.7em 1.5em;
+	padding: 1em 1.5em;
 	padding-left: 2.7em;
 	margin: 0.8em 0.5em 0;
 	/* width: 15.5em; */
@@ -72,15 +72,15 @@ nav {
 
 .bio {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	/* grid-template-columns: 1fr 2fr; */
 	font-family: Arial, Helvetica, sans-serif;
-	padding: 3em 0 2em 0em;
+	/* padding: 3em 0 2em 0em; */
 	border-bottom: 0.2px solid #dbdbdb;
 	margin-top: 5em;
 	margin-bottom: 2em;
-	width: 80%;
-	margin: 5em 5em 2em;
+	width: 85%;
+	/* margin: 5em 5em 2em; */
 }
 
 #profilePhotoInput {
@@ -318,9 +318,9 @@ nav {
 		width: 100%;
 	}
 
-	/* .search {
-		width: 40%;
-	} */
+	.search {
+		width: 90%;
+	}
 
 	.bio {
 		display: block;
@@ -374,4 +374,10 @@ nav {
 		width: 4em;
 		height: 2em;
 	}
+}
+
+.loader {
+	position: absolute;
+	top: 55%;
+	left: 30%;
 }

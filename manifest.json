@@ -1,0 +1,27 @@
+{
+	"name": "instagram App",
+	"short_name": "instaAPP",
+	"icons": [
+		{
+			"src": "./assets/instagram.png",
+			"sizes": "192X192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "./assets/icon-384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		},
+		{
+			"src": "./assets/icon-512.png",
+			"sizes": "512X512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#FFFFFF",
+	"background_color": "#FFFFFF",
+	"start_url": "./instagram-app/",
+	"display": "standalone",
+	"orientation": "portrait"
+}

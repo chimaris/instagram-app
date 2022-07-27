@@ -1,34 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import getPhotoUrl from "get-photo-url";
 import { db } from "../dexie";
 import { useLiveQuery } from "dexie-react-hooks";
 import profileIcon from "../assets/profileIcon.svg";
 
 const Bio = () => {
-	const [userDetails, setUserDetails] = useState({
-		name: "Wendu Stellamaris",
-		about: "Highly motivated Web Developer with a big passion for internet and all related..",
-	});
+	// const [defaultObjectData, setdefaultObjectData] = useState({
+	// 	name: "Wendu Stellamaris",
+	// 	about: "Highly motivated Web Developer with a big passion for internet and all related..",
+	// });
+	// const [profilePhoto, setProfilePhoto] = useState(profileIcon);
+
 	const [editFormIsOpen, setEditFormIsOpen] = useState(false);
-	const [profilePhoto, setProfilePhoto] = useState(profileIcon);
 
-	useEffect(() => {
-		const setDataFromDb = async () => {
-			const userDatailsFromDb = await db.bio.get("info");
-			const profilePhotoFromDb = await db.bio.get("profilePhoto");
-			userDatailsFromDb && setUserDetails(userDatailsFromDb);
-			profilePhotoFromDb && setProfilePhoto(profilePhotoFromDb);
-		};
+	// Setup Defualt Value
+	const defaultObjectData = {
+		name: "Wendu Stella",
+		about: "Highly motivated Web Developer with a big passion for internet and all related..",
+	};
 
-		setDataFromDb();
-	});
+	// useEffect(() => {
+	// 	const setDataFromDb = async () => {
+	// 		// const userDatailsFromDb = await db.bio.get("info");
+	// 		const profilePhotoFromDb = await db.bio.get("profilePhoto");
+	// 		// userDatailsFromDb && setUserDetails(userDatailsFromDb);
+	// 		profilePhotoFromDb && setProfilePhoto(profilePhotoFromDb);
+	// 	};
 
-	// const userDetails = useLiveQuery(async () => await db.bio.get("info"));
-	// if (!userDetails) return null;
-	// if (userDetails === {}) {
-	// 	userDetails.name = "Wendu StellaMaris";
-	// 	userDetails.about = "Highly motivated Web Developer with a big passion for internet and all related..";
-	// }
+	// 	setDataFromDb();
+	// });
+
+	const profilePhotoFromDb = useLiveQuery(async () => await db.bio.get("profilePhoto"));
+	const userDetails = useLiveQuery(async () => await db.bio.get("info"));
+	if (!userDetails) return null;
 
 	const updateUserDetails = async (e) => {
 		e.preventDefault();
@@ -45,7 +49,7 @@ const Bio = () => {
 	const updatePhotoInput = async () => {
 		const newProfilePhoto = await getPhotoUrl("#profilePhotoInput");
 		db.bio.put(newProfilePhoto, "profilePhoto");
-		setProfilePhoto(newProfilePhoto);
+		// setProfilePhoto(newProfilePhoto);
 	};
 
 	const editForm = (
@@ -76,13 +80,13 @@ const Bio = () => {
 			<input type="file" accept="image/*" name="photo" id="profilePhotoInput" />
 			<label htmlFor="profilePhotoInput" onClick={updatePhotoInput}>
 				<div className="profile-photo" role="button" title="Click to edit photo">
-					<img src={profilePhoto} alt="profile" />
+					<img src={profilePhotoFromDb || profileIcon} alt="profile" />
 				</div>
 			</label>
 
 			<div className="profile-info">
-				<p className="name">{userDetails.name}</p>
-				<p className="about">{userDetails.about}</p>
+				<p className="name">{userDetails?.name || defaultObjectData.name}</p>
+				<p className="about">{userDetails?.about || defaultObjectData.about}</p>
 
 				{editFormIsOpen ? editForm : editButton}
 			</div>

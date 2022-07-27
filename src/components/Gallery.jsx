@@ -68,7 +68,7 @@ const Gallery = () => {
 				removePhoto={() => removePhoto(currentPhotoId)}
 				deleteAllPhotos={deleteAllPhotos}>
 				<h1>ooops !!!</h1>
-				<p>Are you sure you want to {targetDeleteButton} photo(s)</p>
+				<p>Are you sure you want to {targetDeleteButton} photo(s) </p>
 			</Modal>
 
 			<input type="file" name="photo" id="addPhotoInput" />
@@ -83,9 +83,8 @@ const Gallery = () => {
 			)}
 
 			<section className="gallery">
-				{!allPhotos && <img src={loader} alt="loading....." />}
-
-				{allPhotos?.length <= 0 && <p style={{ textAlign: "center" }}>No data found</p>}
+				{!allPhotos && <img src={loader} alt="loading....." className="loader" />}
+				{allPhotos?.length <= 0 && <p style={{ textAlign: "center", fontSize: "25px" }}>No Photo found</p>}
 
 				{allPhotos?.map((photo) => (
 					<div className="item" key={photo.id}>
