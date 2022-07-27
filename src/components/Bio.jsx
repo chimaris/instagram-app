@@ -15,7 +15,7 @@ const Bio = () => {
 
 	// Setup Defualt Value
 	const defaultObjectData = {
-		name: "Wendu Stella",
+		name: "Wendu Stellamaris",
 		about: "Highly motivated Web Developer with a big passion for internet and all related..",
 	};
 
