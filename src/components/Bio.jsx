@@ -32,7 +32,7 @@ const Bio = () => {
 
 	const profilePhotoFromDb = useLiveQuery(async () => await db.bio.get("profilePhoto"));
 	const userDetails = useLiveQuery(async () => await db.bio.get("info"));
-	if (!userDetails) return null;
+	// if (!userDetails) return null;
 
 	const updateUserDetails = async (e) => {
 		e.preventDefault();
@@ -54,12 +54,12 @@ const Bio = () => {
 
 	const editForm = (
 		<form className="edit-bio-form" onSubmit={updateUserDetails}>
-			<input type="text" id="" name="nameOfUser" defaultValue={userDetails.name} placeholder="Your name" />
+			<input type="text" id="" name="nameOfUser" defaultValue={userDetails?.name} placeholder="Your name" />
 			{/* <input type="text" id="" name="aboutUser" defaultValue={userDetails.about} placeholder="About you" /> */}
 			<textarea
 				name="aboutUser"
 				id=""
-				defaultValue={userDetails.about}
+				defaultValue={userDetails?.about}
 				placeholder="About you"
 				cols="30"
 				rows="40"></textarea>
