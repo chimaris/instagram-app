@@ -4,11 +4,11 @@ This project is a cloned instagram user profile for NevDev webstack challenge. F
 
 ## Stack
 
-For this project, I used the following:
-1.HTML
-2.CSS
-3.JavaScript
-4.IndexedDb/Dexie for storage
+For this project, I used the following:\
+1.HTML\
+2.CSS\
+3.JavaScript\
+4.IndexedDb/Dexie for storage\
 5.Workbox for service worker generation
 
 ## URL
