@@ -65,7 +65,7 @@ const Gallery = () => {
 				removePhoto={() => removePhoto(currentPhotoId)}
 				deleteAllPhotos={deleteAllPhotos}>
 				<h1>ooops !!!</h1>
-				<p>Are you sure you want to {targetDeleteButton} photo(s) </p>
+				<p>Are you sure you want to {targetDeleteButton}</p>
 			</Modal>
 
 			<input type="file" name="photo" id="addPhotoInput" />
