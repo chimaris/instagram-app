@@ -49,9 +49,6 @@ const Gallery = () => {
 		// console.log(id);
 		db.gallery.delete(id);
 		setShowModal(false);
-		setTimeout(() => {
-			alert("Deleted Successfully");
-		}, 2000);
 	};
 
 	const deleteAllPhotos = () => {
